@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JS Objects</title>
+		<script>
+			
+			function Sample () {
+				this.check = {
+					get function () { return 10; },
+					set function (v) { alert("Not avaible"); }
+				}
+			}
+			
+			
+			window.addEventListener("load", function(){
+				var obj = new Sample();
+				obj.check = 10;
+				document.getElementById("codexample").innerHTML = obj.check;
+			});
+		</script>
+	</head>
+	<body>
+		<pre id="codexample">
+		</pre>
+	</body>
+</html>

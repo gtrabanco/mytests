@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Archivo de pruebas HTML 5, CSS 3 y JS</title>
+  <meta charset="utf8">
+</head>
+<body>
+<script>
+	"use strict";
+	var demo = document.getElementById("demo");
+	var counter = 0;
+	/* Añadir eventos */
+	window.addEventListener("load", function () {
+		document.getElementById("exa").addEventListener("click", function() {
+			var header = document.getElementsByTagName("header")[0];
+			var h1 = document.getElementsByTagName("h1")[0];
+			
+			
+			//if (counter < 2) { //No more than 2 clicks
+				//We can count the childs in spite of use a counter
+			if (document.getElementsByTagName("header")[0].children.length < 3) { //No more than 2 clicks
+				counter++;
+			
+			
+				//OnClick Code
+				var ne = document.createElement("h2");
+				ne.innerHTML = "Subtitle Counter " + counter;
+				//alternative:
+				// ne.appendChild(document.createTextNode("text..."));
+				header.appendChild(ne);
+			}		
+		}, true);
+		
+		document.getElementById("democlick").addEventListener("click", function() {
+				//Dates
+				var f = new Date();
+				var y = f.getFullYear();
+				var m = f.getMonth();
+				var d = f.getDate();
+				f.setDate(d+1);
+				//document.getElementById("demo").innerHTML = f;
+				document.getElementById("demo").innerHTML = new Date(y, m, d+31);
+		}, true);
+	});
+
+</script>
+<header>
+	<h1>Ejemplos de HTML5, CSS 3 y JS</h1>
+</header>
+<nav>
+  <a href="#/example">Ejemplo</a>
+  <p id="exa">Click Me!</p>
+</nav>
+<aside>
+	Buscar contenido relacionado
+</aside>
+<section>
+	<header>
+		<h2>Sección</h2>
+		<small>Resumen Sección</small>
+	</header>
+	<article>
+		<header>
+			<h3>Artículo 1</h3>
+		</header>
+		<p>Este articulo</p>
+		<footer>
+			Publicado el 2 de Julio de 2015 por Faustino
+		</footer>
+	</article>
+	<article>
+		<header>
+			<h3>Artículo 2</h3>
+		</header>
+		<p>Este articulo</p>
+		<footer>
+			Publicado el 2 de Julio de 2015 por Faustino
+		</footer>
+	</article>
+	<footer>
+		Sección
+	</footer> 
+
+<form action="#" name="example" enctype="multipart/form-data" method="post">
+  <label>User
+    <input type="text" name="username" required="required" placeholder="Username..." min="5" value="" />
+  </label>
+  <label>Password
+  	<input type="password" name="passwd" required="required" placeholder="Password..." value="" />
+  </label>
+  
+  <label>Favorite color
+    <input type="color" name="color" value="red" />
+  </label>
+  
+  <label>Email
+    <input type="email" name="mail" value="" placeholder="your@email.tdl" required="required" />
+  </label>
+  
+  <input type="submit" value="Send" onsubmit="validateForm('example');" />
+</form>
+
+<p><input type="button" value="Ver Demo" id="democlick"></p>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var c = document.body.childNodes;
+    var txt = "";
+    var i;
+    for (i = 0; i < c.length; i++) {
+        txt = txt + c[i].nodeName + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+</body>
+</html>
